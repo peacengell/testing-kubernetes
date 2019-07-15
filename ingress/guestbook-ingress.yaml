@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: guestbook
+spec:
+  rules:
+  - host: staging-guestbook.mstakx.io
+    http:
+      paths:
+      - backend:
+          serviceName: frontend-staging
+          servicePort: 80
+  - host: guestbook.mstakx.io
+    http:
+      paths:
+      - backend:
+          serviceName: frontend-production
+          servicePort: 80
